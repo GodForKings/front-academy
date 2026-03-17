@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+:root {
+  --default_bg: #0c091a;
+  --main-orange: #f7911c;
+  --main-blue: #1c56f7;
+  --main-violet: #b00cd5;
+  --main-red: #d80905;
+  --main-green: #058610;
+}
+
+@theme inline {
+  --color-default_bg: var(--default_bg);
+  --color-main-orange: var(--main-orange);
+  --color-main-blue: var(--main-blue);
+  --color-main-violet: var(--main-violet);
+  --color-main-red: var(--main-red);
+  --color-main-green: var(--main-green);
+}
+
+* {
+  /* IE и Edge */
+  -ms-overflow-style: none !important;
+  /* Firefox */
+  scrollbar-width: none !important;
+}
+*::-webkit-scrollbar {
+  display: none !important;
+}
+html {
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+  height: 100%;
+}
+body {
+  background: var(--default_bg);
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+/* бэкграунд Image над градиентом */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url('/images/background.png') center / cover no-repeat;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ГРАДИЕНТ на весь экран */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(90deg, #0c091a 0%, #1d102d 100%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+button {
+  cursor: pointer;
+}

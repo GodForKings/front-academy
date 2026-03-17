@@ -1,0 +1,171 @@
+{
+  "navigation": {
+    "games": "Игры",
+    "workshop": "Воркшоп",
+    "tasks": "Задания",
+    "rating": "Рейтинг",
+    "tournaments": "Турниры",
+    "services": "Услуги"
+  },
+  "registration": {
+    "title": "CS2 Hub",
+    "subtitle": "Играй, выполняй задания, участвуй в турнирах и получай награды",
+    "steps": {
+      "1": {
+        "title": "Открывай кейсы",
+        "text": "Получай скины и предметы из эксклюзивных кейсов"
+      },
+      "2": {
+        "title": "Выполняй задания",
+        "text": "Зарабатывай баланс за игровые и социальные задания"
+      },
+      "3": {
+        "title": "Участвуй в турнирах",
+        "text": "Соревнуйся с другими игроками и выигрывай призы"
+      }
+    },
+    "actions": {
+      "start": "Начать",
+      "guest": "Просмотр без регистрации"
+    },
+    "legal": {
+      "prefix": "Продолжая, вы соглашаетесь с",
+      "terms": "Правилами использования",
+      "and": "и",
+      "privacy": "Политикой конфиденциальности"
+    },
+    "roles": {
+      "title": "Выбери роль",
+      "subtitle": "После этого откроются дополнительные функции"
+    }
+  },
+  "registrationEmail": {
+    "email": {
+      "title": "Подтверди Email",
+      "subtitle": "Введи свой email адрес для подтверждения",
+      "continue": "Продолжить"
+    },
+    "phone": {
+      "title": "Подтверди телефон",
+      "importFromTelegram": "Импортировать из Telegram",
+      "subtitle": "Введи свой телефон для подтверждения",
+      "continue": "Продолжить"
+    },
+    "code": {
+      "title": "Введи код подтверждения",
+      "subtitle": "Мы отправили код на почту {email}",
+      "resend": "Отправить повторно",
+      "error": "Код неверный"
+    },
+    "accounts": {
+      "title": "Привяжи аккаунты",
+      "subtitle": "После этого откроются дополнительные функции",
+      "connect": "Подключить",
+      "skip": "Пропустить",
+
+      "actions": {
+        "connect": "Подключить",
+        "connected": "Подключено",
+        "disconnect": "Отвязать",
+        "skip": "Пропустить",
+        "continue": "Продолжить"
+      },
+      "steam": {
+        "title": "Steam account",
+        "subtitle": "Подключи свой профиль"
+      },
+      "faceit": {
+        "title": "Faceit account",
+        "subtitle": "Подключи Faceit"
+      },
+      "twitch": {
+        "title": "Twitch account",
+        "subtitle": "Подключи Twitch"
+      }
+    }
+  },
+  "cases": {
+    "title": "Доступные кейсы",
+    "availableItems": "{count, plural, one {Доступен # предмет} few {Доступно # предмета} many {Доступно # предметов} other {Доступно # предмета}}",
+    "prizes": "Призы:",
+    "openCase": "Открыть кейс",
+    "notPoints": "Недостаточно поинтов",
+    "urPrize": "Ваш приз:",
+    "openNext": "Открыть еще"
+  },
+  "userTasks": {
+    "title": "Задания",
+    "subtitle": "Выполняй задания и получай поинты",
+    "completed": "Выполнено",
+    "perform": "Выполнить",
+    "available": "Доступно",
+    "descNotFound": "Но задания скоро появятся",
+    "congratulate": "Задание выполнено!"
+  },
+  "profilePage": {
+    "profile": {
+      "title": "Профиль",
+      "dailyBonus": "Ежедневный бонус",
+      "dailyBonusHint": "Получи {amount}",
+      "receive": "Получить"
+    },
+    "inventory": {
+      "title": "Инвентарь",
+      "availableItems": "{count, plural, one {# предмет} few {# предмета} many {# предметов} other {# предмета}}",
+      "emptyText": "Открывай кейсы и скины появятся здесь",
+      "emptyButton": "Открывать кейсы",
+      "cases": "Кейсы",
+      "allItems": "Все ({count})",
+      "tradeLinkModalTitle": "Trade link Steam",
+      "tradeLinkModalText": "Чтобы вывести скин в Steam, сначала добавь trade link. Его можно найти в настройках обмена Steam.",
+      "tradeLinkHelp": "Где найти trade link",
+      "tradeLinkPlaceholder": "Вставь trade link",
+      "tradeLinkSave": "Сохранить",
+      "tradeLinkRequired": "Вставь trade link",
+      "tradeLinkSteamNotLinked": "Сначала привяжи Steam аккаунт",
+      "tradeLinkInvalid": "Некорректный trade link",
+      "tradeLinkSaveError": "Не удалось сохранить trade link"
+    },
+    "referral": {
+      "title": "Реферальная программа",
+      "subtitle": "Приглашай друзей и получай бонусы",
+      "linkPlaceholder": "Ссылка для приглашения",
+      "invitedList": "Список приглашенных",
+      "copy": "Копировать",
+      "copySuccess": "Реферальная ссылка скопирована",
+      "copyError": "Не удалось скопировать"
+    },
+    "connectedAccounts": {
+      "title": "Подключенные аккаунты",
+      "emailLabel": "Почта (email)",
+      "phoneLabel": "Телефон",
+      "connect": "Подключить",
+      "disconnect": "Отключить",
+      "providers": {
+        "steam": "Steam",
+        "faceit": "Faceit",
+        "twitch": "Twitch"
+      }
+    },
+    "stats": {
+      "title": "Статистика",
+      "tasks": "Заданий",
+      "cases": "Кейсов",
+      "pointsAllTime": "Поинтов за все время",
+      "role": "Роль"
+    },
+    "links": {
+      "serviceRules": "Правила сервиса",
+      "privacyPolicy": "Политика конфиденциальности",
+      "appGuide": "Гайд по приложению"
+    }
+  },
+  "shared": {
+    "open": "Открыть",
+    "closed": "Закрыть",
+    "notFound": "Пока тут пусто",
+    "goHome": "На главную",
+    "loading": "Загрузка",
+    "register": "Зарегистрироваться"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "navigation": {
+    "games": "Games",
+    "workshop": "Workshop",
+    "tasks": "Tasks",
+    "rating": "Rating",
+    "tournaments": "Tournaments",
+    "services": "Services"
+  },
+  "registration": {
+    "title": "CS2 Hub",
+    "subtitle": "Play, complete tasks, compete in tournaments and earn rewards",
+    "steps": {
+      "1": {
+        "title": "Open cases",
+        "text": "Get skins and items from exclusive cases"
+      },
+      "2": {
+        "title": "Complete tasks",
+        "text": "Earn balance for gameplay and social tasks"
+      },
+      "3": {
+        "title": "Join tournaments",
+        "text": "Compete with other players and win prizes"
+      }
+    },
+    "actions": {
+      "start": "Start",
+      "guest": "Continue without registration"
+    },
+    "legal": {
+      "prefix": "By continuing, you agree to the",
+      "terms": "Terms of Use",
+      "and": "and",
+      "privacy": "Privacy Policy"
+    },
+    "roles": {
+      "title": "Choose a role",
+      "subtitle": "This will unlock additional features"
+    }
+  },
+  "registrationEmail": {
+    "email": {
+      "title": "Confirm Email",
+      "subtitle": "Enter your email address to verify it",
+      "continue": "Continue"
+    },
+    "phone": {
+      "title": "Confirm Phone",
+      "importFromTelegram": "Import from Telegram",
+      "subtitle": "Enter your phone number to verify it",
+      "continue": "Continue"
+    },
+    "code": {
+      "title": "Enter verification code",
+      "subtitle": "We sent the code to {email}",
+      "resend": "Resend",
+      "error": "Invalid code"
+    },
+    "accounts": {
+      "title": "Connect accounts",
+      "subtitle": "This will unlock additional features",
+      "connect": "Connect",
+      "skip": "Skip",
+      "actions": {
+        "connect": "Connect",
+        "connected": "Connected",
+        "disconnect": "Disconnect",
+        "skip": "Skip",
+        "continue": "Continue"
+      },
+      "steam": {
+        "title": "Steam account",
+        "subtitle": "Connect your profile"
+      },
+      "faceit": {
+        "title": "Faceit account",
+        "subtitle": "Connect Faceit"
+      },
+      "twitch": {
+        "title": "Twitch account",
+        "subtitle": "Connect Twitch"
+      }
+    }
+  },
+  "cases": {
+    "title": "Available cases",
+    "availableItems": "{count, plural, one {# item available} other {# items available}}",
+    "prizes": "Prizes:",
+    "openCase": "Open case",
+    "notPoints": "Not enough points",
+    "urPrize": "Your prize:",
+    "openNext": "Open more"
+  },
+  "userTasks": {
+    "title": "Tasks",
+    "subtitle": "Complete tasks and earn points",
+    "completed": "Completed",
+    "perform": "Complete",
+    "available": "Available",
+    "descNotFound": "Tasks will appear soon",
+    "congratulate": "Task completed!"
+  },
+  "profilePage": {
+    "profile": {
+      "title": "Profile",
+      "dailyBonus": "Daily bonus",
+      "dailyBonusHint": "Get {amount}",
+      "receive": "Claim"
+    },
+    "inventory": {
+      "title": "Inventory",
+      "availableItems": "{count, plural, one {# item} other {# items}}",
+      "emptyText": "Open cases and your skins will appear here",
+      "emptyButton": "Open cases",
+      "cases": "Cases",
+      "allItems": "All ({count})",
+      "tradeLinkModalTitle": "Steam trade link",
+      "tradeLinkModalText": "To withdraw a skin to Steam, first add your trade link. You can find it in your Steam trade settings.",
+      "tradeLinkHelp": "Where to find the trade link",
+      "tradeLinkPlaceholder": "Paste your trade link",
+      "tradeLinkSave": "Save",
+      "tradeLinkRequired": "Paste your trade link",
+      "tradeLinkSteamNotLinked": "Link your Steam account first",
+      "tradeLinkInvalid": "Invalid trade link",
+      "tradeLinkSaveError": "Failed to save trade link"
+    },
+    "referral": {
+      "title": "Referral program",
+      "subtitle": "Invite friends and earn bonuses",
+      "linkPlaceholder": "Invite link",
+      "invitedList": "Invited list",
+      "copy": "Copy",
+      "copySuccess": "Referral link copied",
+      "copyError": "Failed to copy"
+    },
+    "connectedAccounts": {
+      "title": "Connected accounts",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "connect": "Connect",
+      "disconnect": "Disconnect",
+      "providers": {
+        "steam": "Steam",
+        "faceit": "Faceit",
+        "twitch": "Twitch"
+      }
+    },
+    "stats": {
+      "title": "Statistics",
+      "tasks": "Tasks",
+      "cases": "Cases",
+      "pointsAllTime": "All-time points",
+      "role": "Role"
+    },
+    "links": {
+      "serviceRules": "Service rules",
+      "privacyPolicy": "Privacy policy",
+      "appGuide": "App guide"
+    }
+  },
+  "shared": {
+    "open": "Open",
+    "closed": "Closed",
+    "notFound": "Nothing was found",
+    "goHome": "Go home",
+    "loading": "Loading",
+    "register": "Sign up"
+  }
+}
