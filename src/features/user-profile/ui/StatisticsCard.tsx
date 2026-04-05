@@ -1,13 +1,15 @@
 'use client'
 
-import { $user } from '@/entities'
-import { CaseIcon, FaceIcon, StormIcon, SwitchIcon, TasksIcon, cn } from '@/shared'
-import { PAGES } from '@/widgets'
 import { useUnit } from 'effector-react'
 import { Axe } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type { FC, ReactNode } from 'react'
+
+import { $user } from '@/entities'
+import { CaseIcon, cn,FaceIcon, StormIcon, SwitchIcon, TasksIcon } from '@/shared'
+import { PAGES } from '@/widgets'
+
 import { formatNumber } from '../lib/helpers'
 import { $myStats } from '../model/myStatsList'
 

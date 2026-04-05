@@ -1,4 +1,5 @@
 import { api } from '@/shared'
+
 import type { PublicAppConfig } from './types'
 
 /** Получить публичный конфиг приложения */

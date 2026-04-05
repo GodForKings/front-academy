@@ -1,5 +1,6 @@
-import { cn } from '@/shared'
 import type { FC } from 'react'
+
+import { cn } from '@/shared'
 
 interface SkinCardSkeletonProps {
   className?: string

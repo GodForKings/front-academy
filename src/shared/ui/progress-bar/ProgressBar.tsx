@@ -1,8 +1,9 @@
 'use client'
 
-import { cn } from '@/shared'
 import { motion } from 'motion/react'
 import type { FC } from 'react'
+
+import { cn } from '@/shared'
 
 interface ProgressBarProps {
   value?: number // 0 - 100

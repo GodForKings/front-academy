@@ -1,6 +1,8 @@
+import { createEffect, createEvent, createStore, sample } from 'effector'
+
 import { toastModels } from '@/entities'
 import { Task } from '@/shared/types'
-import { createEffect, createEvent, createStore, sample } from 'effector'
+
 import { getMyTasks, takeTask } from '../api/methods'
 
 /* Эффекты */

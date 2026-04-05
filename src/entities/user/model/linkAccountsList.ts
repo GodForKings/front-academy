@@ -1,21 +1,26 @@
 'use client'
 
-import { $user, toastModels } from '@/entities'
+import { openLink } from '@tma.js/sdk-react'
+import { combine, createEffect, createEvent, sample } from 'effector'
+
+import { toastModels } from '@/entities/toast'
+
 import {
   connectFaceit,
   connectSteam,
   connectTwitch,
   disconnectFaceit,
   disconnectSteam,
-} from '@/entities/user'
-import { openLink } from '@tma.js/sdk-react'
-import { combine, createEffect, createEvent, sample } from 'effector'
+  disconnectTwitch,
+} from '../api/methods'
+import { $user } from './userList'
 /* Эффекты */
 export const connectSteamFx = createEffect(connectSteam)
 export const disconnectSteamFx = createEffect(disconnectSteam)
 export const connectFaceitFx = createEffect(connectFaceit)
 export const disconnectFaceitFx = createEffect(disconnectFaceit)
 export const connectTwitchFx = createEffect(connectTwitch)
+export const disconnectTwitchFx = createEffect(disconnectTwitch)
 
 /** Открыть URL привязки в браузере */
 const openLinkFx = createEffect((url: string) => {
@@ -46,6 +51,7 @@ export const $steamDisconnectPending = disconnectSteamFx.pending
 export const $faceitPending = connectFaceitFx.pending
 export const $faceitDisconnectPending = disconnectFaceitFx.pending
 export const $twitchPending = connectTwitchFx.pending
+export const $twitchDisconnectPending = disconnectTwitchFx.pending
 
 /* UI => effects */
 sample({
@@ -92,9 +98,24 @@ sample({
 })
 sample({
   clock: twitchClicked,
-  source: { linked: $twitchLinked, pending: $twitchPending },
-  filter: ({ linked, pending }) => !linked && !pending,
+  source: {
+    linked: $twitchLinked,
+    connectPending: $twitchPending,
+    disconnectPending: $twitchDisconnectPending,
+  },
+  filter: ({ linked, disconnectPending }) => linked && !disconnectPending,
+  target: disconnectTwitchFx,
+})
+sample({
+  clock: twitchClicked,
+  source: { linked: $twitchLinked, connectPending: $twitchPending },
+  filter: ({ linked, connectPending }) => !linked && !connectPending,
   target: connectTwitchFx,
+})
+sample({
+  clock: connectTwitchFx.doneData,
+  fn: (data) => data.url,
+  target: openLinkFx,
 })
 
 /* Как вариант ?? */
@@ -129,6 +150,11 @@ sample({
   fn: () => 'Не удалось подключить Twitch',
   target: toastModels.events.showError,
 })
+sample({
+  clock: disconnectTwitchFx.failData,
+  fn: () => 'Не удалось отвязать Twitch',
+  target: toastModels.events.showError,
+})
 
 /** Все units */
 export const linkAccountsModels = {
@@ -143,5 +169,6 @@ export const linkAccountsModels = {
     $faceitPending,
     $faceitDisconnectPending,
     $twitchPending,
+    $twitchDisconnectPending,
   },
 }

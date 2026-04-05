@@ -1,4 +1,5 @@
 import { api } from '@/shared'
+
 import type { User, UserDto } from './types'
 
 /** Получить `data` по User */
@@ -51,8 +52,13 @@ export async function disconnectFaceit(): Promise<void> {
 }
 
 /** Подключить Twitch */
-export async function connectTwitch(): Promise<void> {
-  await api.post(`user/twitch`)
+export async function connectTwitch(): Promise<{ url: string }> {
+  const { data } = await api.post<{ url: string }>(`twitch/link-token`)
+  return data
+}
+/** Отвязать Twitch */
+export async function disconnectTwitch(): Promise<void> {
+  await api.post(`twitch/disconnect`)
 }
 
 /** Обновить Steam trade link

@@ -1,5 +1,7 @@
-import { toastModels } from '@/entities'
 import { createEffect, createEvent, createStore, sample } from 'effector'
+
+import { toastModels } from '@/entities'
+
 import { getCases } from '../api/methods'
 import { Case } from '../api/types'
 

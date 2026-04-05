@@ -1,5 +1,6 @@
-import { cn, type IconProps } from '@/shared'
 import type { FC } from 'react'
+
+import { cn, type IconProps } from '@/shared'
 
 export const SwitchIcon: FC<IconProps> = (props) => {
   const { size = 16, color = '#f7911c', className } = props

@@ -1,5 +1,6 @@
-import { InfoBlock, cn } from '@/shared'
 import type { FC } from 'react'
+
+import { cn, InfoBlock } from '@/shared'
 
 interface StepRowProps {
   number: string | number

@@ -1,6 +1,7 @@
+import { createEffect, createEvent, sample } from 'effector'
+
 import { toastModels } from '@/entities'
 import { copyToClipboard } from '@/shared'
-import { createEffect, createEvent, sample } from 'effector'
 
 /* Эффекты */
 const copyReferralFx = createEffect(copyToClipboard)

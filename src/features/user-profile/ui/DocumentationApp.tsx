@@ -1,11 +1,12 @@
 'use client'
 
-import { Button, GUIDE, PRIVACY, TERMS, cn } from '@/shared'
-import { LegalDocModal, openModal } from '@/widgets'
 import { useUnit } from 'effector-react'
 import { CircleQuestionMark, File, ShieldUser } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import type { FC, ReactNode } from 'react'
+
+import { Button, cn, GUIDE, PRIVACY, TERMS } from '@/shared'
+import { LegalDocModal, openModal } from '@/widgets'
 
 interface DocumentationAppProps {
   className?: string

@@ -1,8 +1,9 @@
 'use client'
 
-import { GRADIENT_ORANGE, cn } from '@/shared'
 import { motion } from 'motion/react'
 import type { FC } from 'react'
+
+import { cn,GRADIENT_ORANGE } from '@/shared'
 
 interface TabButtonProps {
   active: boolean

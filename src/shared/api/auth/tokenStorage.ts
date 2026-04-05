@@ -1,22 +1,29 @@
 import { extractTgIdFromToken } from '@/shared'
-import type { CreateTokenResponse } from '@/shared/api'
-import { api } from '@/shared/api'
+
+import { api } from '../api'
+import type { CreateTokenResponse } from './types'
 
 const ACCESS_TOKEN_KEY = 'access_token'
 const REFRESH_TOKEN_KEY = 'refresh_token'
 const CURRENT_USER_KEY = 'current_user_tg_id'
 
-/** Получает ключ для хранения токена доступа для конкретного пользователя */
+/**
+ * Получает ключ для хранения токена доступа для конкретного пользователя
+ */
 function getAccessTokenKey(tgId: string): string {
   return `${ACCESS_TOKEN_KEY}_${tgId}`
 }
 
-/** Получает ключ для хранения refresh токена для конкретного пользователя */
+/**
+ * Получает ключ для хранения refresh токена для конкретного пользователя
+ */
 function getRefreshTokenKey(tgId: string): string {
   return `${REFRESH_TOKEN_KEY}_${tgId}`
 }
 
-/** Очищает токены всех пользователей кроме текущего */
+/**
+ * Очищает токены всех пользователей кроме текущего
+ */
 function clearOtherUsersTokens(currentTgId: string): void {
   if (typeof window === 'undefined') return
 
@@ -35,7 +42,9 @@ function clearOtherUsersTokens(currentTgId: string): void {
   }
 }
 
-/** Сохраняет токены в localStorage для конкретного пользователя */
+/**
+ * Сохраняет токены в localStorage для конкретного пользователя
+ */
 export function saveTokens(tokens: CreateTokenResponse): void {
   if (typeof window === 'undefined') return
 
@@ -60,7 +69,9 @@ export function saveTokens(tokens: CreateTokenResponse): void {
   }
 }
 
-/** Получает токены из localStorage для текущего пользователя */
+/**
+ * Получает токены из localStorage для текущего пользователя
+ */
 export function getTokens(): CreateTokenResponse | null {
   if (typeof window === 'undefined') return null
 
@@ -84,7 +95,9 @@ export function getTokens(): CreateTokenResponse | null {
   }
 }
 
-/** Удаляет токены из localStorage для текущего пользователя */
+/**
+ * Удаляет токены из localStorage для текущего пользователя
+ */
 export function clearTokens(): void {
   if (typeof window === 'undefined') return
 
@@ -103,7 +116,9 @@ export function clearTokens(): void {
   }
 }
 
-/** Обновляет заголовок авторизации в текущем экземпляре axios */
+/**
+ * Обновляет заголовок авторизации в текущем экземпляре axios
+ */
 export function updateAuthHeader(accessToken: string): void {
   if (accessToken) {
     api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`

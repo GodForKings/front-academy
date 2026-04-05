@@ -1,13 +1,15 @@
 'use client'
 
-import { $isVerified, $user } from '@/entities'
-import { ImageIcon, InfoBlock, cn, getUserLevel, usePlatform } from '@/shared'
-import { PAGES } from '@/widgets'
 import { initData, useSignal } from '@tma.js/sdk-react'
 import { useUnit } from 'effector-react'
 import { usePathname, useRouter } from 'next/navigation'
 import type { FC } from 'react'
+
+import { cn, ImageIcon, InfoBlock, usePlatform } from '@/shared'
+import { PAGES } from '@/widgets'
+
 import { HIDE_HEADER_PREFIXES } from '../lib'
+import { $isVerified, $user } from '../model/userList'
 import { PointsPlayer } from './PointsPlayer'
 
 interface ProfileHeaderProps {
@@ -48,7 +50,7 @@ export const ProfileHeader: FC<ProfileHeaderProps> = (props) => {
           className='text-left'
           headerClass='max-w-45 truncate'
           title={`${initDataUser?.first_name}`}
-          paragraph={`${getUserLevel(userData?.experience ?? 0)} lvl`}
+          paragraph={`${userData?.level ?? 1} lvl`}
         />
       </button>
 

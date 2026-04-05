@@ -1,5 +1,7 @@
-import { cn, type IconProps } from '@/shared'
 import type { FC } from 'react'
+
+import { cn, type IconProps } from '@/shared'
+
 import { DEFAULT_SIZE } from './config'
 
 export const SpinIcon: FC<IconProps> = (props) => {

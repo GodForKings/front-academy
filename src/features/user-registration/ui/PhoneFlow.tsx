@@ -1,23 +1,25 @@
 'use client'
 
+import { requestContact } from '@tma.js/sdk-react'
+import { useUnit } from 'effector-react'
+import { X } from 'lucide-react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import type { FC } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+
 import {
   Button,
-  InfoBlock,
-  PageWrapper,
   cn,
   formatPhoneDisplay,
+  InfoBlock,
   normalizePhone,
+  PageWrapper,
   safeReturnTo,
   usePlatform,
 } from '@/shared'
 import { PAGES } from '@/widgets'
-import { requestContact } from '@tma.js/sdk-react'
-import { useUnit } from 'effector-react'
-import { X } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import { useRouter, useSearchParams } from 'next/navigation'
-import type { FC } from 'react'
-import { useCallback, useEffect, useState } from 'react'
+
 import { phoneFlowModels } from '../model/phoneFlowList'
 
 export const PhoneFlow: FC = () => {

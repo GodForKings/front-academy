@@ -1,10 +1,12 @@
 'use client'
 
-import { SuccessDialog } from '@/shared'
-import { closeDialog, openDialog } from '@/widgets/dialog'
 import { useUnit } from 'effector-react'
 import { useTranslations } from 'next-intl'
-import { useEffect, type FC } from 'react'
+import { type FC,useEffect } from 'react'
+
+import { SuccessDialog } from '@/shared'
+import { closeDialog, openDialog } from '@/widgets/dialog'
+
 import { dailyBonusModels } from '../model/dailyBonusList'
 
 export const DailyDialogController: FC = () => {

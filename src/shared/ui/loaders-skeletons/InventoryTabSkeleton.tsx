@@ -1,7 +1,8 @@
 'use client'
 
-import { cn } from '@/shared'
 import type { FC } from 'react'
+
+import { cn } from '@/shared'
 
 const SKELETON_CARDS = Array.from({ length: 6 })
 const SKELETON_CHIPS = Array.from({ length: 3 })

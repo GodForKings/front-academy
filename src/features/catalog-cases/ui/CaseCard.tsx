@@ -1,12 +1,14 @@
 'use client'
 
-import { Button, PricePoints, cn, getPhotoUrl } from '@/shared'
-import { PAGES } from '@/widgets'
 import { motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { Button, cn, getPhotoUrl,PricePoints } from '@/shared'
+import { PAGES } from '@/widgets'
+
 import type { Case } from '../api/types'
 
 interface CaseCardProps {

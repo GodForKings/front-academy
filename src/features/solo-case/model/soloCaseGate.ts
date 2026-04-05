@@ -2,6 +2,7 @@
 
 import { sample } from 'effector'
 import { createGate } from 'effector-react'
+
 import { fetchCase } from './soloCaseList'
 
 export const SoloCaseGate = createGate<{ id: string }>()

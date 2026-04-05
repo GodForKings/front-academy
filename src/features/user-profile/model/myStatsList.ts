@@ -1,9 +1,11 @@
 'use client'
 
-import { toastModels } from '@/entities'
-import type { MyStats } from '@/shared/types'
 import { createEffect, createEvent, createStore, sample } from 'effector'
 import { createGate } from 'effector-react'
+
+import { toastModels } from '@/entities'
+import type { MyStats } from '@/shared/types'
+
 import { getMyStats } from '../api/methods'
 
 export const MyStatsGate = createGate()

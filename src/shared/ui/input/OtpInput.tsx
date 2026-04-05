@@ -1,8 +1,9 @@
 'use client'
 
-import { cn } from '@/shared'
 import type { ClipboardEvent, FC, KeyboardEvent } from 'react'
 import { useEffect, useMemo, useRef, useState } from 'react'
+
+import { cn } from '@/shared'
 
 interface OtpInputProps {
   length?: 4 | 6

@@ -1,10 +1,12 @@
 'use client'
 
-import { UnregisteredButton } from '@/entities'
-import { CaseCardSkeleton, Empty, PageWrapper, cn } from '@/shared'
 import { useUnit } from 'effector-react'
 import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { UnregisteredButton } from '@/entities'
+import { CaseCardSkeleton, cn,Empty, PageWrapper } from '@/shared'
+
 import { casesModels } from '../model/casesList'
 import { CaseCard } from './CaseCard'
 

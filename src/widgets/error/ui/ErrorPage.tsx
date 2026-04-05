@@ -1,8 +1,9 @@
 'use client'
 
-import { Button, cn } from '@/shared'
 import { Bug } from 'lucide-react'
 import { useEffect } from 'react'
+
+import { Button, cn } from '@/shared'
 
 export function ErrorPage({
   error,

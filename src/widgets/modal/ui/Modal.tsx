@@ -1,7 +1,7 @@
 'use client'
 
 import { useUnit } from 'effector-react'
-import { useEffect, useRef, useState, type FC } from 'react'
+import { type FC,useEffect, useRef, useState } from 'react'
 
 import { cn, usePlatform } from '@/shared'
 

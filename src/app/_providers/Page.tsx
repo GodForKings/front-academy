@@ -2,7 +2,7 @@
 
 import { backButton } from '@tma.js/sdk-react'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState, type FC, type ReactNode } from 'react'
+import { type FC, type ReactNode,useEffect, useState } from 'react'
 
 interface PageProps {
   children: ReactNode
@@ -11,7 +11,7 @@ interface PageProps {
 }
 
 export const Page: FC<PageProps> = (props) => {
-  const { children, back = true, onBackClick } = props
+  const { children, back = false, onBackClick } = props
   const router = useRouter()
 
   const [canGoBack, setCanGoBack] = useState<boolean>(false)

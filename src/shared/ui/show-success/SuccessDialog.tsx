@@ -1,9 +1,10 @@
 'use client'
 
-import { cn } from '@/shared'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import type { FC, ReactNode } from 'react'
+
+import { cn } from '@/shared'
 
 interface SuccessDialogProps {
   reward: number

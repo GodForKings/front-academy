@@ -1,8 +1,9 @@
 'use client'
 
-import { Empty, cn } from '@/shared'
-import { useEffect, useRef, useState, type FC } from 'react'
+import { type FC,useEffect, useRef, useState } from 'react'
 import { Document, Page, pdfjs } from 'react-pdf'
+
+import { cn,Empty } from '@/shared'
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`
 

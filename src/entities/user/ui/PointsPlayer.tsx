@@ -1,9 +1,11 @@
 'use client'
 
-import { $user } from '@/entities'
-import { PricePoints, cn } from '@/shared'
 import { useUnit } from 'effector-react'
 import type { FC } from 'react'
+
+import { cn, PricePoints } from '@/shared'
+
+import { $user } from '../model/userList'
 
 interface PointsPlayerProps {
   className?: string

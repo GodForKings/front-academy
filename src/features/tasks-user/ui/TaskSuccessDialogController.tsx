@@ -1,11 +1,12 @@
 'use client'
 
 import { useUnit } from 'effector-react'
-import { useEffect, type FC } from 'react'
+import { useTranslations } from 'next-intl'
+import { type FC,useEffect } from 'react'
 
 import { SuccessDialog } from '@/shared'
 import { closeDialog, openDialog } from '@/widgets/dialog'
-import { useTranslations } from 'next-intl'
+
 import { tasksModels } from '../model/userTasksList'
 
 export const TaskSuccessDialogController: FC = () => {

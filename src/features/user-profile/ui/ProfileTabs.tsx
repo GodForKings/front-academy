@@ -1,8 +1,10 @@
 'use client'
 
-import { TabButton, cn } from '@/shared'
 import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { cn,TabButton } from '@/shared'
+
 import type { ProfileTab } from '../lib/types'
 
 interface ProfileTabsProps {

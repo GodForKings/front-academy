@@ -1,4 +1,5 @@
 import { api } from '@/shared'
+
 import type { CaseDetails, OpenCaseResponse } from './types'
 
 /** Получить всю **data** по кейсу

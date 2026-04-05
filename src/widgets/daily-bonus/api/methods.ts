@@ -1,4 +1,5 @@
 import { api } from '@/shared'
+
 import type { DailyBonusCheck, DailyBonusClaimResponse } from './types'
 
 /** Проверить доступность ежедневного бонуса */

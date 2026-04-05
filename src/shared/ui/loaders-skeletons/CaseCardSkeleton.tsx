@@ -1,7 +1,8 @@
 'use client'
 
-import { cn } from '@/shared'
 import type { FC } from 'react'
+
+import { cn } from '@/shared'
 
 interface CaseCardSkeletonProps {
   className?: string

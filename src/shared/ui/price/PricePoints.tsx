@@ -1,6 +1,7 @@
-import { cn } from '@/shared'
 import Image from 'next/image'
 import type { FC } from 'react'
+
+import { cn } from '@/shared'
 
 interface PricePointsProps {
   className?: string // стиль для текста

@@ -1,6 +1,7 @@
-import { cn, getPhotoUrl } from '@/shared'
 import Image from 'next/image'
 import type { FC } from 'react'
+
+import { cn, getPhotoUrl } from '@/shared'
 
 interface ImageIconProps {
   className?: string

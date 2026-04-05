@@ -1,9 +1,11 @@
 'use client'
 
-import { GRADIENT_ORANGE, SkinCard, cn } from '@/shared'
-import type { Skin } from '@/shared/types'
 import gsap from 'gsap'
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type FC } from 'react'
+import { type FC,useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+
+import { cn,GRADIENT_ORANGE, SkinCard } from '@/shared'
+import type { Skin } from '@/shared/types'
+
 import { buildReel } from '../lib/helpers'
 
 const CARD_W = 170 // размер карточки

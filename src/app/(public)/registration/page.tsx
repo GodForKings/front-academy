@@ -3,7 +3,7 @@ import { StartingInformation } from '@/features'
 
 export default function Registration() {
   return (
-    <Page back={false}>
+    <Page>
       <StartingInformation />
     </Page>
   )

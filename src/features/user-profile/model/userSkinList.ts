@@ -1,8 +1,10 @@
 'use client'
 
+import { createEffect, createEvent, createStore, sample } from 'effector'
+
 import { toastModels } from '@/entities'
 import type { Skin } from '@/shared/types'
-import { createEffect, createEvent, createStore, sample } from 'effector'
+
 import { getMySkins, sellSkinById, withdrawSkinById } from '../api/methods'
 
 /* Эффекты */
@@ -59,16 +61,16 @@ sample({ clock: withdrawSkin, target: setWithdrawingSkinId })
 sample({ clock: fetchMySkinsFx.doneData, target: setSkins })
 
 sample({
-  source: $sellingSkinId,
   clock: sellSkinFx.doneData,
+  source: $sellingSkinId,
   filter: (skinId) => Boolean(skinId),
   fn: (skinId) => String(skinId),
   target: removeSkin,
 })
 
 sample({
-  source: $withdrawingSkinId,
   clock: withdrawSkinFx.doneData,
+  source: $withdrawingSkinId,
   filter: (skinId) => Boolean(skinId),
   fn: (skinId) => String(skinId),
   target: removeSkin,

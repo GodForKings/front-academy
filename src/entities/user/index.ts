@@ -1,5 +1,5 @@
 export * from './api/methods'
-export type { User, UserDto, UserFaceit, UserSteam } from './api/types'
+export type { User, UserDto, UserFaceit, UserSteam, UserTwitch } from './api/types'
 export { linkAccountsModels } from './model/linkAccountsList'
 export { UserGate } from './model/userGate'
 export {
@@ -10,9 +10,12 @@ export {
   $userIsLoading,
   $userUpdateLoading,
   balanceUpdated,
+  experienceUpdated,
   faceitUpdated,
   fetchUser,
+  steamTradeTokenUpdated,
   steamUpdated,
+  twitchUpdated,
   updateSteamTradeLinkData,
   updateUserData,
   updateUserFx,

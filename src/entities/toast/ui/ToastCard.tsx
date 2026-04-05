@@ -1,10 +1,11 @@
 'use client'
 
-import { cn, usePlatform } from '@/shared'
 import { Ban, BotMessageSquare, Check, X } from 'lucide-react'
 import { FC } from 'react'
 import type { Toast } from 'react-hot-toast'
 import { toast } from 'react-hot-toast'
+
+import { cn, usePlatform } from '@/shared'
 
 function Icon({ type }: { type: Toast['type'] }) {
   if (type === 'success') {

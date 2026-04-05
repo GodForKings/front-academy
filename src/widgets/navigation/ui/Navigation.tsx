@@ -3,20 +3,17 @@
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
 
 import {
-  GamesIcon,
-  RatingIcon,
-  ServicesIcon,
-  TasksIcon,
-  TournamentsIcon,
-  WorkShopIcon,
   cn,
+  GamesIcon,
+  ProfileIcon,
+  TasksIcon,
   usePlatform,
 } from '@/shared'
 
-import { useTranslations } from 'next-intl'
 import { PAGES } from '../model/pages.config'
 import type { NavigationPage } from '../model/types'
 
@@ -30,11 +27,12 @@ export const Navigation: FC = () => {
 
   const pagesData: NavigationPage[] = [
     { title: t('navigation.games'), link: PAGES.GAMES, icon: GamesIcon },
-    { title: t('navigation.workshop'), link: PAGES.WORK_SHOP, icon: WorkShopIcon },
+    // { title: t('navigation.workshop'), link: PAGES.WORK_SHOP, icon: WorkShopIcon },
     { title: t('navigation.tasks'), link: PAGES.TASKS, icon: TasksIcon },
-    { title: t('navigation.rating'), link: PAGES.RATING, icon: RatingIcon },
-    { title: t('navigation.tournaments'), link: PAGES.TOURNAMENTS, icon: TournamentsIcon },
-    { title: t('navigation.services'), link: PAGES.SERVICES, icon: ServicesIcon },
+    { title: t('navigation.profile'), link: PAGES.PROFILE, icon: ProfileIcon },
+    // { title: t('navigation.rating'), link: PAGES.RATING, icon: RatingIcon },
+    // { title: t('navigation.tournaments'), link: PAGES.TOURNAMENTS, icon: TournamentsIcon },
+    // { title: t('navigation.services'), link: PAGES.SERVICES, icon: ServicesIcon },
   ]
 
   const handleSwitchingPages = (isActive: boolean) => {

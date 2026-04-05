@@ -1,10 +1,11 @@
 'use client'
 
-import { DailyBonus } from '@/widgets'
 import { useGate } from 'effector-react'
 import type { FC } from 'react'
+
+import { DailyBonus } from '@/widgets'
+
 import { MyStatsGate } from '../model/myStatsList'
-import { DocumentationApp } from './DocumentationApp'
 import { PlatformSync } from './PlatformSync'
 import { ProfileCard } from './ProfileCard'
 import { ReferralBlock } from './ReferralBlock'
@@ -22,17 +23,17 @@ export const ProfileTabContent: FC = () => {
       {/* widgets - Дневной бонус */}
       <DailyBonus />
 
+      {/* Блок со статистикой юзера */}
+      <StatisticsCard />
+
       {/* Реферальный блок */}
       <ReferralBlock />
 
       {/* Подключенные аккаунты */}
       <PlatformSync />
 
-      {/* Блок со статистикой юзера */}
-      <StatisticsCard />
-
       {/* Блок документацией */}
-      <DocumentationApp />
+      {/* <DocumentationApp /> */}
     </>
   )
 }

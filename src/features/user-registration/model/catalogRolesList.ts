@@ -1,6 +1,7 @@
+import { combine, createEvent, createStore, sample } from 'effector'
+
 import { $user, updateUserData, updateUserFx } from '@/entities'
 import { $roles } from '@/entities/roles'
-import { combine, createEvent, createStore, sample } from 'effector'
 
 /* События */
 export const roleSelected = createEvent<string>()

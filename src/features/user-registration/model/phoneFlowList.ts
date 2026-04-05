@@ -1,6 +1,7 @@
+import { createEvent, createStore, sample } from 'effector'
+
 import { $user, toastModels, updateUserData, updateUserFx } from '@/entities'
 import { normalizePhone, toServerPhone } from '@/shared'
-import { createEvent, createStore, sample } from 'effector'
 
 /* События */
 export const phoneChanged = createEvent<string>()

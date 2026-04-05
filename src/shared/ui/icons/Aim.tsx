@@ -1,5 +1,6 @@
-import type { IconProps } from '@/shared'
 import type { FC } from 'react'
+
+import type { IconProps } from '@/shared'
 
 export const AimIcon: FC<IconProps> = (props) => {
   const { size = 100, style, className } = props

@@ -1,5 +1,7 @@
-import type { IconProps } from '@/shared'
 import type { FC } from 'react'
+
+import type { IconProps } from '@/shared'
+
 import { DEFAULT_COLOR, DEFAULT_SIZE } from './config'
 
 export const TournamentsIcon: FC<IconProps> = (props) => {

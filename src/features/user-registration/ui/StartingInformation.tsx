@@ -1,12 +1,14 @@
 'use client'
 
-import { Button, PRIVACY, PageWrapper, TERMS, cn, usePlatform } from '@/shared'
-import { LegalDocModal, PAGES, openModal } from '@/widgets'
 import { useUnit } from 'effector-react'
 import { motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { Button, cn, PageWrapper, usePlatform } from '@/shared'
+import { LegalDocModal, openModal, PAGES } from '@/widgets'
+
 import { skipRegistration } from '../model/skip'
 import { StepRow } from './StepRow'
 
@@ -71,7 +73,7 @@ export const StartingInformation: FC = () => {
           {t('actions.guest')}
         </Button>
 
-        <p className='text-center text-xs/4 text-white/70 tracking-wide text-balance'>
+        {/* <p className='text-center text-xs/4 text-white/70 tracking-wide text-balance'>
           {t('legal.prefix')}{' '}
           <button
             onClick={() => handleOpenInfo(t('legal.terms'), TERMS)}
@@ -86,7 +88,7 @@ export const StartingInformation: FC = () => {
           >
             {t('legal.privacy')}
           </button>
-        </p>
+        </p> */}
       </motion.div>
     </PageWrapper>
   )

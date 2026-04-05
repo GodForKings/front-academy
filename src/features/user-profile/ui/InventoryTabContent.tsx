@@ -1,14 +1,16 @@
 'use client'
 
-import { $user, SteamTradeLinkModal } from '@/entities'
-import { Button, InventoryTabSkeleton, SkinCard, SpinIcon, cn } from '@/shared'
-import type { RarityFilter, SkinRarityName } from '@/shared/types'
-import { PAGES, openModal } from '@/widgets'
 import { useGate, useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
-import { ReactNode, useMemo, useState, type FC } from 'react'
+import { useTranslations } from 'next-intl'
+import { type FC, ReactNode, useMemo, useState } from 'react'
+
+import { $user, SteamTradeLinkModal } from '@/entities'
+import { Button, cn, InventoryTabSkeleton, SkinCard, SpinIcon } from '@/shared'
+import type { RarityFilter, SkinRarityName } from '@/shared/types'
+import { openModal, PAGES } from '@/widgets'
+
 import { RARITIES, RARITY_LABELS } from '../lib/data'
 import { UserSkinsGate } from '../model/userSkinGate'
 import { inventoryModels } from '../model/userSkinList'

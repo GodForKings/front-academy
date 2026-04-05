@@ -1,11 +1,13 @@
 'use client'
 
-import { BOT_NAME, Button, cn } from '@/shared'
 import { initData, useSignal } from '@tma.js/sdk-react'
 import { useUnit } from 'effector-react'
 import { Copy } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { BOT_NAME, Button, cn } from '@/shared'
+
 import { copyReferral } from '../model/referralList'
 
 export const ReferralBlock: FC = () => {

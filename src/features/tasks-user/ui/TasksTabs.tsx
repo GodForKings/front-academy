@@ -1,8 +1,9 @@
 'use client'
 
-import { TabButton, cn } from '@/shared'
-import type { TaskTab } from '@/shared/types'
 import type { FC } from 'react'
+
+import { cn,TabButton } from '@/shared'
+import type { TaskTab } from '@/shared/types'
 
 interface TasksTabsProps {
   tab: TaskTab

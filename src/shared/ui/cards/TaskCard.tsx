@@ -1,11 +1,12 @@
 'use client'
 
-import { InfoBlock, SpinIcon, cn } from '@/shared'
-import type { Task } from '@/shared/types'
 import { Swords } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { cn,InfoBlock, SpinIcon } from '@/shared'
+import type { Task } from '@/shared/types'
 
 function TaskTypeIcon({ type }: { type: string | null }) {
   const iconSize = 20

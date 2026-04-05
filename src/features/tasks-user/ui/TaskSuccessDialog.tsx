@@ -1,10 +1,11 @@
 'use client'
 
-import { cn } from '@/shared'
 import { motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { cn } from '@/shared'
 
 interface TaskSuccessDialogProps {
   reward: number

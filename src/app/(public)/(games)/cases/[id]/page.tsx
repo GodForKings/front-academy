@@ -1,9 +1,10 @@
 'use client'
 
-import { Page } from '@/app/_providers'
-import { SoloCaseGate, SoloCaseView } from '@/features'
 import { useGate } from 'effector-react'
 import { useParams } from 'next/navigation'
+
+import { Page } from '@/app/_providers'
+import { SoloCaseGate, SoloCaseView } from '@/features'
 
 export default function SoloCase() {
   const params = useParams<{ id: string }>()

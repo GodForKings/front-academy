@@ -1,13 +1,15 @@
 'use client'
 
-import { $steamTradeLinkLoading, $user, updateSteamTradeLinkData } from '@/entities'
-import { Button, SpinIcon, cn } from '@/shared'
-import { closeModal } from '@/widgets'
 import { useUnit } from 'effector-react'
 import { Link, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState, type FC } from 'react'
+import { type FC, useState } from 'react'
+
+import { Button, cn, SpinIcon } from '@/shared'
+import { closeModal } from '@/widgets'
+
 import { handleOpenSteamTradeLink, isValidSteamTradeLink } from '../lib'
+import { $steamTradeLinkLoading, $user, updateSteamTradeLinkData } from '../model/userList'
 
 export const SteamTradeLinkModal: FC = () => {
   const t = useTranslations('profilePage')

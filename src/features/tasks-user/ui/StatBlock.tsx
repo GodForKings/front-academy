@@ -1,5 +1,6 @@
-import { cn } from '@/shared'
 import type { FC, ReactNode } from 'react'
+
+import { cn } from '@/shared'
 
 interface StatBlockProps {
   title: string // Заголовок

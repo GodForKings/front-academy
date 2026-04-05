@@ -2,6 +2,7 @@
 
 import { sample } from 'effector'
 import { createGate } from 'effector-react'
+
 import { fetchCases } from './casesList'
 
 export const CasesGate = createGate()

@@ -1,8 +1,9 @@
 'use client'
 
-import { AimIcon, InfoBlock, cn } from '@/shared'
 import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { AimIcon, cn,InfoBlock } from '@/shared'
 
 interface EmptyProps {
   className?: string

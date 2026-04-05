@@ -1,8 +1,9 @@
 'use client'
 
-import { fetchRoles } from '@/entities/roles'
 import { sample } from 'effector'
 import { createGate } from 'effector-react'
+
+import { fetchRoles } from '@/entities/roles'
 
 export const RolesGate = createGate()
 

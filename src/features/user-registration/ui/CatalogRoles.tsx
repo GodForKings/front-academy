@@ -1,12 +1,14 @@
 'use client'
 
-import { $roles } from '@/entities'
-import { Button, CardRole, InfoBlock, PageWrapper, cn, safeReturnTo, usePlatform } from '@/shared'
-import { PAGES } from '@/widgets'
 import { useUnit } from 'effector-react'
-import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect, type FC } from 'react'
+import { useTranslations } from 'next-intl'
+import { type FC, useEffect } from 'react'
+
+import { $roles } from '@/entities'
+import { Button, CardRole, cn, InfoBlock, PageWrapper, safeReturnTo, usePlatform } from '@/shared'
+import { PAGES } from '@/widgets'
+
 import { catalogRolesModels } from '../model/catalogRolesList'
 
 export const CatalogRoles: FC = () => {

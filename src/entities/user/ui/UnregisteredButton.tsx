@@ -1,13 +1,16 @@
 'use client'
 
-import { $isVerified } from '@/entities/user'
+import { useUnit } from 'effector-react'
+import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import type { FC } from 'react'
+
+// eslint-disable-next-line boundaries/element-types
 import { dropSkip } from '@/features'
 import { Button, cn, usePlatform } from '@/shared'
 import { PAGES } from '@/widgets'
-import { useUnit } from 'effector-react'
-import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
-import type { FC } from 'react'
+
+import { $isVerified } from '../model/userList'
 
 export const UnregisteredButton: FC = () => {
   const [resetSkip, isVerified] = useUnit([dropSkip, $isVerified])

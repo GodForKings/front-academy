@@ -1,10 +1,11 @@
 'use client'
 
-import { Button, PDFViewer, cn } from '@/shared'
-import { closeModal } from '@/widgets'
 import { useUnit } from 'effector-react'
 import { X } from 'lucide-react'
 import { FC } from 'react'
+
+import { Button, cn,PDFViewer } from '@/shared'
+import { closeModal } from '@/widgets'
 
 interface LegalDocModalProps {
   title: string

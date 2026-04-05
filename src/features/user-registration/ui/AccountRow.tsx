@@ -1,5 +1,6 @@
-import { Button, InfoBlock, cn } from '@/shared'
 import type { FC } from 'react'
+
+import { Button, cn, InfoBlock } from '@/shared'
 
 interface AccountRowProps {
   icon: string

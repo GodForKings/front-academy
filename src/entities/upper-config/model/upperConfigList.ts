@@ -1,5 +1,9 @@
-import { getPublicConfig, toastModels, type PublicAppConfig } from '@/entities'
 import { createEffect, createEvent, createStore, sample } from 'effector'
+
+import { toastModels } from '@/entities'
+
+import { getPublicConfig } from '../api/methods'
+import type { PublicAppConfig } from '../api/types'
 
 /* Эффекты */
 const fetchPublicConfigFx = createEffect(getPublicConfig)

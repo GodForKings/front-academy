@@ -1,150 +1,119 @@
-import { useRawInitData } from '@tma.js/sdk-react'
-import axios, { type AxiosError, type AxiosResponse, type InternalAxiosRequestConfig } from 'axios'
+import axios, { AxiosError, type AxiosResponse, type InternalAxiosRequestConfig } from 'axios'
 
-import { ENVIRONMENT_CONFIG, fetchUserIp } from '@/shared'
+import { ENVIRONMENT_CONFIG } from '@/shared'
 
-import { ApiErrorBody } from '../types'
-import { clearTokens, createToken, getTokens, refreshToken, saveTokens } from './auth'
+import {
+  clearTokens,
+  type FailedQueueItem,
+  getTokens,
+  refreshToken,
+  type RetryRequestConfig,
+  saveTokens,
+} from './auth'
 
 export const apiUrl = ENVIRONMENT_CONFIG.API_URL
 
+/** Axios instance */
 export const api = axios.create({
   baseURL: apiUrl,
+  paramsSerializer: { indexes: null },
 })
 
-type RetryRequestConfig = InternalAxiosRequestConfig & {
-  _retry?: boolean
-}
-
-type FailedQueueItem = {
-  resolve: (value: AxiosResponse) => void
-  reject: (reason?: unknown) => void
-  originalRequest: RetryRequestConfig
-}
+/** флаг refreshing */
 let isRefreshing = false
+/** Очередь запросов */
 let failedQueue: FailedQueueItem[] = []
 
-const processQueue = async (error: unknown, token: string | null = null) => {
-  for (const item of failedQueue) {
-    try {
+/** Обработка очереди после успешного / неуспешного refreshing */
+const processQueue = async (error: AxiosError | null, token: string | null = null) => {
+  await Promise.all(
+    failedQueue.map(async (item) => {
       if (error) {
         item.reject(error)
-        continue
+        return
       }
 
       if (!token) {
-        item.reject(new Error('No token provided'))
-        continue
+        item.reject(new AxiosError('No token provided'))
+        return
       }
 
-      item.originalRequest.headers.Authorization = `Bearer ${token}`
+      if (item.originalRequest.headers) {
+        item.originalRequest.headers.Authorization = `Bearer ${token}`
+      }
 
-      const res = await axios(item.originalRequest)
-      item.resolve(res)
-    } catch (e) {
-      item.reject(e)
-    }
-  }
+      try {
+        /* чистый axios, чтобы не попасть в интерцептор */
+        const response = await axios(item.originalRequest)
+        item.resolve(response)
+      } catch (err) {
+        item.reject(err as AxiosError)
+      }
+    }),
+  )
 
   failedQueue = []
 }
 
-/* Интерцептор запросов для добавления токена */
+/** Интерцептор запросов + accessToken */
 api.interceptors.request.use(
-  async (config: InternalAxiosRequestConfig) => {
+  (config: InternalAxiosRequestConfig) => {
     const tokens = getTokens()
-
     if (tokens?.accessToken) {
       config.headers.Authorization = `Bearer ${tokens.accessToken}`
     }
-
     return config
   },
   (error) => Promise.reject(error),
 )
 
-/* Интерцептор ответов для обновления токена при ошибке 401 */
+/** Refresh токена при 401 */
 api.interceptors.response.use(
   (response: AxiosResponse) => response,
-  async (error: AxiosError<ApiErrorBody>) => {
-    const originalRequest = error.config as RetryRequestConfig | undefined
-
-    if (!originalRequest) {
-      return Promise.reject(error)
-    }
+  async (error: AxiosError) => {
+    const originalRequest = error.config as RetryRequestConfig
 
     if (
       error.response?.status === 401 &&
       !originalRequest._retry &&
       !originalRequest.url?.includes('/auth/token/refresh')
     ) {
+      const tokens = getTokens()
+      if (!tokens?.refreshToken) {
+        clearTokens()
+        return Promise.reject(error)
+      }
+
+      originalRequest._retry = true
+
       if (isRefreshing) {
         return new Promise<AxiosResponse>((resolve, reject) => {
           failedQueue.push({ resolve, reject, originalRequest })
         })
       }
 
-      const rawInitData = useRawInitData()
-      const userIp = await fetchUserIp()
-
-      originalRequest._retry = true
       isRefreshing = true
 
-      const tokens = getTokens()
+      try {
+        const response = await refreshToken({
+          refreshToken: tokens.refreshToken,
+        })
+        saveTokens(response)
 
-      if (tokens?.refreshToken) {
-        try {
-          const response = await refreshToken({
-            refreshToken: tokens.refreshToken,
-          })
-
-          if ('accessToken' in response && 'refreshToken' in response) {
-            saveTokens(response)
-            originalRequest.headers.Authorization = `Bearer ${response.accessToken}`
-
-            processQueue(null, response.accessToken)
-            isRefreshing = false
-
-            return axios(originalRequest)
-          }
-
-          clearTokens()
-          processQueue(new Error('Не удалось обновить токен'))
-          isRefreshing = false
-          return Promise.reject(error)
-        } catch (refreshError: unknown) {
-          console.error('Не удалось обновить токен:', refreshError)
-
-          try {
-            if (!rawInitData || !userIp) {
-              throw new Error('Отсутствуют данные для создания токена')
-            }
-
-            const newTokens = await createToken({
-              initDataRaw: rawInitData,
-              ip: userIp,
-            })
-
-            saveTokens(newTokens)
-            originalRequest.headers.Authorization = `Bearer ${newTokens.accessToken}`
-
-            processQueue(null, newTokens.accessToken)
-            isRefreshing = false
-
-            return axios(originalRequest)
-          } catch (createError: unknown) {
-            console.error('Не удалось создать новые токены:', createError)
-            clearTokens()
-            processQueue(createError)
-            isRefreshing = false
-            return Promise.reject(createError)
-          }
+        if (originalRequest.headers) {
+          originalRequest.headers.Authorization = `Bearer ${response.accessToken}`
         }
-      }
 
-      clearTokens()
-      isRefreshing = false
-      return Promise.reject(error)
+        processQueue(null, response.accessToken)
+        /* вызываем чистый axios */
+        return axios(originalRequest)
+      } catch (refreshError) {
+        clearTokens()
+        processQueue(refreshError as AxiosError)
+        return Promise.reject(refreshError)
+      } finally {
+        isRefreshing = false
+      }
     }
 
     return Promise.reject(error)

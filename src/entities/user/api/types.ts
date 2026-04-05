@@ -14,6 +14,14 @@ export interface UserFaceit {
   email: string | null
 }
 
+export interface UserTwitch {
+  twitchId: string
+  login: string | null
+  displayName: string | null
+  avatar: string | null
+  email: string | null
+}
+
 export interface User {
   tgId: string
   username: string
@@ -25,10 +33,12 @@ export interface User {
   email: string | null
   role: Role
   experience: number
+  level: number
+  levelProgress: number
   balance: number
-  steam: UserSteam | null // пока хз
-  faceit: UserFaceit | null // пока хз
-  twitch: string | null // пока хз
+  steam: UserSteam | null
+  faceit: UserFaceit | null
+  twitch: UserTwitch | null
   isVerified: boolean
   isActive: boolean
   isBanned: boolean

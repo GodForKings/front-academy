@@ -1,8 +1,10 @@
 'use client'
 
-import { toastModels } from '@/entities'
 import { createEffect, createEvent, createStore, sample } from 'effector'
 import { createGate } from 'effector-react'
+
+import { toastModels } from '@/entities'
+
 import { checkDailyBonus, claimDailyBonus } from '../api/methods'
 import { DailyBonusCheck } from '../api/types'
 

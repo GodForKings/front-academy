@@ -1,7 +1,7 @@
 import {
   backButton,
-  initData,
   init as initSDK,
+  initData,
   miniApp,
   swipeBehavior,
   viewport,

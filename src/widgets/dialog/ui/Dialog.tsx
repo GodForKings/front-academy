@@ -2,7 +2,7 @@
 
 import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'motion/react'
-import { useEffect, type FC } from 'react'
+import { type FC,useEffect } from 'react'
 
 import { cn, usePlatform } from '@/shared'
 import { $dialogClassName, $dialogContent, $isDialogOpen, closeDialog } from '@/widgets/dialog'

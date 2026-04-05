@@ -1,6 +1,8 @@
+import { createEffect, createEvent, createStore, sample } from 'effector'
+
 import { toastModels } from '@/entities'
 import { $user, fetchUser, sendEmailCode, verifyEmailCode } from '@/entities/user'
-import { createEffect, createEvent, createStore, sample } from 'effector'
+
 import { isEmailValid, normalizeCode, normalizeEmail } from '../lib'
 
 const RESEND_SECONDS = 30

@@ -1,7 +1,7 @@
 'use client'
 
 import { initData, useLaunchParams, useSignal } from '@tma.js/sdk-react'
-import { useEffect, type PropsWithChildren } from 'react'
+import { type PropsWithChildren,useEffect } from 'react'
 
 import { setLocale } from '@/core/i18n/locale'
 import { init } from '@/core/init'

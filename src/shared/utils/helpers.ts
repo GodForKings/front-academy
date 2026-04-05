@@ -1,7 +1,8 @@
 'use client'
 
-import { apiUrl } from '@/shared/api'
 import { openLink } from '@tma.js/sdk-react'
+
+import { apiUrl } from '@/shared/api'
 
 /** Для обработки пути к файлам
  * @param url файла
@@ -51,14 +52,6 @@ export const formatPhoneDisplay = (input: string): string => {
 }
 
 export const toServerPhone = (digits: string): string => (digits ? '+' + digits : '')
-
-/** Опыт юзера в лвлах
- * @param experience число
- * @returns `(округляем в большую сторону поделенное на 100)` + 1 */
-export const getUserLevel = (experience: number): number => {
-  const bonus = Math.round(experience / 100)
-  return 1 + bonus
-}
 
 /** Проверка и нормализация пути
  * @param currentPath строку

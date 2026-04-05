@@ -1,7 +1,8 @@
+import { createEffect, createEvent, createStore, sample } from 'effector'
+
 import { toastModels } from '@/entities'
 import { getRoles } from '@/entities/roles'
 import type { Role } from '@/shared/types'
-import { createEffect, createEvent, createStore, sample } from 'effector'
 
 /* Эффекты */
 export const fetchRolesFx = createEffect(getRoles)

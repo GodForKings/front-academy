@@ -1,18 +1,20 @@
 'use client'
 
-import { $isVerified, UnregisteredButton } from '@/entities'
-import { Empty, InfoBlock, PageWrapper, TaskCard, cn } from '@/shared'
-import { Task, TaskTab } from '@/shared/types'
 import { useGate, useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useMemo, useState, type FC } from 'react'
+import { useTranslations } from 'next-intl'
+import { type FC,useMemo, useState } from 'react'
+
+import { $isVerified, UnregisteredButton } from '@/entities'
+import { cn,Empty, InfoBlock, PageWrapper, TaskCard } from '@/shared'
+import { Task, TaskTab } from '@/shared/types'
+
 import { TasksGate } from '../model/userTasksGate'
 import { tasksModels } from '../model/userTasksList'
 import { StatBlock } from './StatBlock'
-import { TaskSuccessDialogController } from './TaskSuccessDialogController'
 import { TasksTabs } from './TasksTabs'
+import { TaskSuccessDialogController } from './TaskSuccessDialogController'
 
 export const ShowUserTasks: FC = () => {
   useGate(TasksGate)

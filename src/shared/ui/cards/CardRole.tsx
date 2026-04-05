@@ -1,10 +1,11 @@
 'use client'
 
-import { InfoBlock, cn, getPhotoUrl } from '@/shared'
-import type { Role } from '@/shared/types'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import type { FC } from 'react'
+
+import { cn, getPhotoUrl,InfoBlock } from '@/shared'
+import type { Role } from '@/shared/types'
 
 interface CardRoleProps {
   role: Role

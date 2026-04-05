@@ -1,8 +1,9 @@
 'use client'
 
-import { fetchUser } from '@/entities/user'
 import { sample } from 'effector'
 import { createGate } from 'effector-react'
+
+import { fetchUser } from './userList'
 
 export const UserGate = createGate()
 

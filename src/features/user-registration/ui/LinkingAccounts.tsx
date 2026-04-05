@@ -1,12 +1,14 @@
 'use client'
 
-import { linkAccountsModels } from '@/entities'
-import { Button, InfoBlock, PageWrapper, cn, usePlatform } from '@/shared'
-import { PAGES } from '@/widgets'
 import { useUnit } from 'effector-react'
-import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { linkAccountsModels } from '@/entities'
+import { Button, cn, InfoBlock, PageWrapper, usePlatform } from '@/shared'
+import { PAGES } from '@/widgets'
+
 import { AccountRow } from './AccountRow'
 
 export const LinkingAccounts: FC = () => {
@@ -17,29 +19,23 @@ export const LinkingAccounts: FC = () => {
   const [
     steamLinked,
     faceitLinked,
-    twitchLinked,
     steamPending,
     steamDisconnectPending,
     faceitPending,
     faceitDisconnectPending,
-    twitchPending,
     canContinue,
     steamClicked,
     faceitClicked,
-    twitchClicked,
   ] = useUnit([
     linkAccountsModels.stores.$steamLinked,
     linkAccountsModels.stores.$faceitLinked,
-    linkAccountsModels.stores.$twitchLinked,
     linkAccountsModels.stores.$steamPending,
     linkAccountsModels.stores.$steamDisconnectPending,
     linkAccountsModels.stores.$faceitPending,
     linkAccountsModels.stores.$faceitDisconnectPending,
-    linkAccountsModels.stores.$twitchPending,
     linkAccountsModels.stores.$canContinue,
     linkAccountsModels.events.steamClicked,
     linkAccountsModels.events.faceitClicked,
-    linkAccountsModels.events.twitchClicked,
   ])
 
   const goNext = () => router.push(PAGES.REGISTRATION_PHONE)

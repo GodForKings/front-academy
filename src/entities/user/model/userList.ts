@@ -1,7 +1,11 @@
-import { toastModels } from '@/entities'
-import type { User, UserDto } from '@/entities/user'
-import { getUser, updateSteamTradeLink, updateUser } from '@/entities/user'
+'use client'
+
 import { createEffect, createEvent, createStore, sample } from 'effector'
+
+import { toastModels } from '@/entities/toast'
+
+import { getUser, updateSteamTradeLink, updateUser } from '../api/methods'
+import type { User, UserDto } from '../api/types'
 
 /* Эффекты */
 export const fetchUserDataFx = createEffect(getUser)
@@ -13,16 +17,27 @@ export const updateSteamTradeLinkFx = createEffect(updateSteamTradeLink)
 export const fetchUser = createEvent()
 export const updateUserData = createEvent<UserDto>()
 export const balanceUpdated = createEvent<number>()
+export const experienceUpdated = createEvent<{
+  experience: number
+  level: number
+  levelProgress: number
+}>()
 export const steamUpdated = createEvent<{
   steamId: string | null
   steamNickname: string | null
   steamAvatar: string | null
-  tradeToken: string | null
 }>()
+export const steamTradeTokenUpdated = createEvent<{ tradeToken: string | null }>()
 export const faceitUpdated = createEvent<{
   faceitId: string | null
   faceitNickname: string | null
   faceitAvatar: string | null
+}>()
+export const twitchUpdated = createEvent<{
+  twitchId: string | null
+  twitchLogin: string | null
+  twitchDisplayName: string | null
+  twitchAvatar: string | null
 }>()
 const setUser = createEvent<User>()
 export const updateSteamTradeLinkData = createEvent<string>() // sting user url
@@ -31,6 +46,16 @@ export const updateSteamTradeLinkData = createEvent<string>() // sting user url
 export const $user = createStore<User | null>(null)
   .on(setUser, (_, userData) => userData)
   .on(balanceUpdated, (user, balance) => (user ? { ...user, balance } : null))
+  .on(experienceUpdated, (user, payload) =>
+    user
+      ? {
+          ...user,
+          experience: payload.experience,
+          level: payload.level,
+          levelProgress: payload.levelProgress,
+        }
+      : null,
+  )
   .on(steamUpdated, (user, payload) => {
     if (!user) return null
 
@@ -46,6 +71,14 @@ export const $user = createStore<User | null>(null)
         : null,
     }
   })
+  .on(steamTradeTokenUpdated, (user, { tradeToken }) => {
+    if (!user?.steam) return user
+
+    return {
+      ...user,
+      steam: { ...user.steam, tradeToken },
+    }
+  })
   .on(faceitUpdated, (user, payload) => {
     if (!user) return null
 
@@ -56,6 +89,22 @@ export const $user = createStore<User | null>(null)
             faceitId: payload.faceitId,
             nickname: payload.faceitNickname,
             avatar: payload.faceitAvatar,
+            email: null,
+          }
+        : null,
+    }
+  })
+  .on(twitchUpdated, (user, payload) => {
+    if (!user) return null
+
+    return {
+      ...user,
+      twitch: payload.twitchId
+        ? {
+            twitchId: payload.twitchId,
+            login: payload.twitchLogin,
+            displayName: payload.twitchDisplayName,
+            avatar: payload.twitchAvatar,
             email: null,
           }
         : null,
@@ -124,8 +173,8 @@ sample({
 })
 /* TradeLink для стима */
 sample({
-  source: $user,
   clock: updateSteamTradeLinkFx.failData,
+  source: $user,
   fn: (user) => {
     if (user && !user.steam) return 'Сначала привяжите Steam'
     return 'Не удалось обновить trade link'

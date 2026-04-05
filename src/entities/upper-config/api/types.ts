@@ -1,7 +1,7 @@
 /** Тип с общими данными из cfg */
 export interface PublicAppConfig {
   rates: {
-    usdtToBalance: number
+    usdToBalance: number
     rubToUsdt: number
   }
   dailyBonus: {

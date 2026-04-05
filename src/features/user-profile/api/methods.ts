@@ -1,5 +1,6 @@
 import { api } from '@/shared'
 import type { MyStats, Skin } from '@/shared/types'
+
 import type { SellSkinResponse, WithdrawSkinResponse } from './types'
 
 /** Получить статистику пользователя */

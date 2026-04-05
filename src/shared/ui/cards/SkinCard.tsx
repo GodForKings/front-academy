@@ -1,10 +1,11 @@
 'use client'
 
-import { InfoBlock, cn, getPhotoUrl, hexToRgba } from '@/shared'
-import type { Skin } from '@/shared/types'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import type { ComponentProps, FC, ReactNode } from 'react'
+
+import { cn, getPhotoUrl, hexToRgba,InfoBlock } from '@/shared'
+import type { Skin } from '@/shared/types'
 
 type MotionDivProps = ComponentProps<typeof motion.div>
 

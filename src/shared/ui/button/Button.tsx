@@ -2,7 +2,7 @@
 
 import type { ButtonHTMLAttributes, FC, ReactNode } from 'react'
 
-import { cn } from '@/shared'
+import { cn } from '@/shared/utils/cn'
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline'
 type ButtonSize = 'lg' | 'md'

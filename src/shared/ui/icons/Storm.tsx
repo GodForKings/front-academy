@@ -1,5 +1,6 @@
-import { cn, type IconProps } from '@/shared'
 import type { FC } from 'react'
+
+import { cn, type IconProps } from '@/shared'
 
 export const StormIcon: FC<IconProps> = (props) => {
   const { size = 16, color, className } = props

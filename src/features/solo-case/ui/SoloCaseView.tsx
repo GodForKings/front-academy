@@ -1,23 +1,25 @@
 'use client'
 
+import { useUnit } from 'effector-react'
+import { motion } from 'motion/react'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import { type FC, ReactNode, useEffect, useRef, useState } from 'react'
+
 import { $isVerified, $user, UnregisteredButton } from '@/entities'
 import {
   Button,
+  cn,
+  getPhotoUrl,
   PageWrapper,
   PricePoints,
   SkinCard,
   SoloCaseSkeleton,
-  cn,
-  getPhotoUrl,
 } from '@/shared'
 import type { Skin } from '@/shared/types'
 import { PAGES } from '@/widgets'
-import { useUnit } from 'effector-react'
-import { motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import { ReactNode, useEffect, useRef, useState, type FC } from 'react'
+
 import { soloCaseModels } from '../model/soloCaseList'
 import { RouletteSkins } from './RouletteSkins'
 
@@ -141,7 +143,7 @@ export const SoloCaseView: FC = () => {
         </div>
       </div>
 
-      {!prize && (
+      {!prize && !spin && (
         <Image
           src={getPhotoUrl(caseData.photo)}
           alt={caseData.name}

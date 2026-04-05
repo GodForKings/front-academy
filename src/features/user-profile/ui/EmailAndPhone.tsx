@@ -1,13 +1,14 @@
 'use client'
 
+import { useUnit } from 'effector-react'
+import { UserPen } from 'lucide-react'
+import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
+import type { FC } from 'react'
+
 import { $user } from '@/entities'
 import { cn, formatPhoneDisplay } from '@/shared'
 import { PAGES } from '@/widgets'
-import { useUnit } from 'effector-react'
-import { UserPen } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
-import type { FC } from 'react'
 
 export const EmailAndPhone: FC = () => {
   const t = useTranslations('profilePage')

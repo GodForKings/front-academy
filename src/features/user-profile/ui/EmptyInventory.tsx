@@ -1,8 +1,9 @@
 'use client'
 
-import { Button, Empty, cn } from '@/shared'
 import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { Button, cn, Empty } from '@/shared'
 
 interface EmptyInventoryProps {
   onClick: () => void

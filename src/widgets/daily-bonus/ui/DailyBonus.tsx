@@ -1,11 +1,13 @@
 'use client'
 
-import { publicConfigModels } from '@/entities'
-import { GRADIENT_DAILY_BONUS, cn, formatHMS } from '@/shared'
 import { useUnit } from 'effector-react'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useEffect, useMemo, useRef, useState, type FC } from 'react'
+import { useTranslations } from 'next-intl'
+import { type FC,useEffect, useMemo, useRef, useState } from 'react'
+
+import { publicConfigModels } from '@/entities'
+import { cn, formatHMS,GRADIENT_DAILY_BONUS } from '@/shared'
+
 import { dailyBonusModels } from '../model/dailyBonusList'
 import { DailyDialogController } from './DailyDialogController'
 

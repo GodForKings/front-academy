@@ -1,10 +1,12 @@
 'use client'
 
-import { linkAccountsModels } from '@/entities'
-import { Button, SpinIcon, cn } from '@/shared'
 import { useUnit } from 'effector-react'
 import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
+
+import { linkAccountsModels } from '@/entities'
+import { Button, cn, SpinIcon } from '@/shared'
+
 import { EmailAndPhone } from './EmailAndPhone'
 
 export const PlatformSync: FC = () => {
@@ -19,6 +21,7 @@ export const PlatformSync: FC = () => {
     faceitPending,
     faceitDisconnectPending,
     twitchPending,
+    twitchDisconnectPending,
     steamClicked,
     faceitClicked,
     twitchClicked,
@@ -31,6 +34,7 @@ export const PlatformSync: FC = () => {
     linkAccountsModels.stores.$faceitPending,
     linkAccountsModels.stores.$faceitDisconnectPending,
     linkAccountsModels.stores.$twitchPending,
+    linkAccountsModels.stores.$twitchDisconnectPending,
     linkAccountsModels.events.steamClicked,
     linkAccountsModels.events.faceitClicked,
     linkAccountsModels.events.twitchClicked,
@@ -38,7 +42,7 @@ export const PlatformSync: FC = () => {
 
   const steamLoading = steamPending || steamDisconnectPending
   const faceitLoading = faceitPending || faceitDisconnectPending
-  const twitchLoading = twitchPending
+  const twitchLoading = twitchPending || twitchDisconnectPending
 
   return (
     <div className={cn('rounded-3xl bg-white/5 backdrop-blur-lg p-4', 'flex flex-col gap-4')}>
@@ -74,11 +78,9 @@ export const PlatformSync: FC = () => {
           title={t('connectedAccounts.providers.twitch')}
           loading={twitchLoading}
           connected={twitchLinked}
-          // Twitch пока только подключить
           actionText={
-            twitchLinked ? t('connectedAccounts.connected') : t('connectedAccounts.connect')
+            twitchLinked ? t('connectedAccounts.disconnect') : t('connectedAccounts.connect')
           }
-          disabledWhenConnected
           onClick={twitchClicked}
         />
       </div>

@@ -1,7 +1,8 @@
 'use client'
 
-import { PageWrapper, SkinCardSkeleton, cn } from '@/shared'
 import type { FC } from 'react'
+
+import { cn,PageWrapper, SkinCardSkeleton } from '@/shared'
 
 export const SoloCaseSkeleton: FC = () => {
   return (

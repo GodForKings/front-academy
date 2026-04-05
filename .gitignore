@@ -100,10 +100,3 @@ next-env.d.ts
 
 # Certificates
 certificates
-
-# git rm --cached setup_server.sh deploy.sh
-# git add .gitignore && git commit -m "Remove setup_server.sh and deploy.sh from tracking"
-# setup_server.sh
-# deploy.sh
-
-.cursor

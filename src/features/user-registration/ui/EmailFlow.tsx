@@ -1,13 +1,15 @@
 'use client'
 
-import { Button, InfoBlock, OtpInput, PageWrapper, cn, safeReturnTo, usePlatform } from '@/shared'
-import { PAGES } from '@/widgets'
 import { useUnit } from 'effector-react'
 import { X } from 'lucide-react'
-import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type { FC } from 'react'
 import { useEffect } from 'react'
+
+import { Button, cn, InfoBlock, OtpInput, PageWrapper, safeReturnTo, usePlatform } from '@/shared'
+import { PAGES } from '@/widgets'
+
 import { formatMMSS } from '../lib'
 import { emailFlowModels } from '../model/emailFlowList'
 
@@ -65,7 +67,7 @@ export const EmailFlow: FC = () => {
   useEffect(() => {
     if (!needRedirect) return
     router.replace(returnTo)
-  }, [needRedirect, router])
+  }, [needRedirect, returnTo, router])
   /* При уходе со страницы скидываем шаг*/
   useEffect(() => {
     return () => {

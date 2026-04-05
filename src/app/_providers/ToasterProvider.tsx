@@ -1,8 +1,9 @@
 'use client'
 
-import { ToastCard } from '@/entities'
 import type { FC } from 'react'
 import { Toaster } from 'react-hot-toast'
+
+import { ToastCard } from '@/entities'
 
 export const ToasterProvider: FC = () => {
   return (

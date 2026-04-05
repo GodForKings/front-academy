@@ -1,8 +1,8 @@
 import './_assets/globals.css'
 
 import type { Metadata, Viewport } from 'next'
-import { getLocale } from 'next-intl/server'
 import { Manrope } from 'next/font/google'
+import { getLocale } from 'next-intl/server'
 import type { PropsWithChildren } from 'react'
 
 import { PlatformContainer, Root, SharedGates, ToasterProvider } from '@/app/_providers'
